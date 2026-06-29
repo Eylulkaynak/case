@@ -4,6 +4,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [Header("Mermi Ayarları")]
+    
     public float damage = 25f; // Merminin vereceği hasar
     public float speed = 10f; // Merminin hızı
 

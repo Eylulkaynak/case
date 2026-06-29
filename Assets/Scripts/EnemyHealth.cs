@@ -6,13 +6,14 @@ public class EnemyHealth : MonoBehaviour
     public float maxHealth = 100f;
     private float currentHealth;
 
+    [Header("Skor Ayarları")]
+    public int pointsValue = 10; // Bu düşman öldüğünde kazanılacak puan
+
     void Start()
     {
-        // Oyun başladığında canı maksimum değere ayarla
         currentHealth = maxHealth;
     }
 
-    // Oyuncunun silahı veya mermisi çarptığında bu fonksiyonu tetiklemelisin
     public void TakeDamage(float damageAmount)
     {
         currentHealth -= damageAmount;
@@ -25,8 +26,13 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
-        // Düşman öldüğünde animasyon olmadığı için objeyi anında yok ediyoruz.
-        // Ekranda kalıntı bırakmamak için en pratik yöntem budur.
+        // GameManager sahnede varsa ve aktifse skoru artır
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.AddScore(pointsValue);
+        }
+
+        // Düşmanı sahneden sil
         Destroy(gameObject);
     }
 }

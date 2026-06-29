@@ -53,14 +53,16 @@ public class PlayerMovement : MonoBehaviour
         float currentSpeed = isRunning ? runSpeed : walkSpeed;
         rb.linearVelocity = new Vector2(horizontalInput * currentSpeed, rb.linearVelocity.y);
 
-        // Yüzünü döndürme (Flip)
+        // Yüzünü döndürme (Flip) - DÜZELTİLEN KISIM BURASI
         if (horizontalInput > 0)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            // Sağa giderken karakterin rotasyonunu sıfırla (Sağa baksın)
+            transform.eulerAngles = new Vector3(0, 0, 0);
         }
         else if (horizontalInput < 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            // Sola giderken karakteri Y ekseninde 180 derece döndür (Sola baksın)
+            transform.eulerAngles = new Vector3(0, 180, 0);
         }
     }
 
@@ -91,8 +93,9 @@ public class PlayerMovement : MonoBehaviour
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
         }
     }
-        public bool CanAttack()
-        {
-            return isGrounded && Mathf.Abs(horizontalInput) < 0.01f;
-        }
+    
+    public bool CanAttack()
+    {
+        return isGrounded && Mathf.Abs(horizontalInput) < 0.01f;
+    }
 }
