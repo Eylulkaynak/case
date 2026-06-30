@@ -24,3 +24,6 @@ Space (Boşluk): Zıplama.
 Left Shift: Koşma.
 
 R Tuşu: Kaydedilmiş en yüksek skoru (High Score) ve mevcut skoru anında sıfırlama.
+enemy sprites ı ve background craftpix sayfasından alınmıştır.
+background: https://craftpix.net/freebies/free-pixel-art-fantasy-2d-battlegrounds/
+enemy: https://craftpix.net/freebies/free-shinobi-sprites-pixel-art/
