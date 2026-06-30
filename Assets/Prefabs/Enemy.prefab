@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6648872614112767978}
   - component: {fileID: 2018990387897500530}
   - component: {fileID: 8928912599703700187}
+  - component: {fileID: 4863452129529762252}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -220,3 +221,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   maxHealth: 100
   pointsValue: 10
+--- !u!114 &4863452129529762252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3556180325354303704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22fd1dca6b5898c4098ef3544a2b20aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  damageAmount: 20

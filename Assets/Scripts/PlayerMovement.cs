@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         float currentSpeed = isRunning ? runSpeed : walkSpeed;
         rb.linearVelocity = new Vector2(horizontalInput * currentSpeed, rb.linearVelocity.y);
 
-        // Yüzünü döndürme (Flip) - DÜZELTİLEN KISIM BURASI
+        // Yüzünü döndürme (Flip)
         if (horizontalInput > 0)
         {
             // Sağa giderken karakterin rotasyonunu sıfırla (Sağa baksın)
@@ -83,6 +83,10 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("isWalking", isMoving && !isRunning);
         anim.SetBool("isRunning", isMoving && isRunning);
         anim.SetBool("isGrounded", isGrounded);
+        
+        // DÜZELTİLEN KISIM: Karakterin Y eksenindeki hızını sürekli olarak Animator'a iletiyoruz.
+        // Bu sayede Animator, karakterin ne zaman düşmeye başladığını (hızın 0'ın altına inmesi) anlayabilir.
+        anim.SetFloat("yVelocity", rb.linearVelocity.y);
     }
 
     private void OnDrawGizmosSelected()
